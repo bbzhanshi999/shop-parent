@@ -1,0 +1,18 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: shop-product
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.134.101:3306/shopserver?createDatabaseIfNotExist=true&Timezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: com.neuedu.UTF8MySql5Dialect
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.134.101:8848

@@ -1,0 +1,30 @@
+version: "3"
+services:
+  shop-db:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    restart:
+      always
+    volumes:
+      - /opt/data:/var/lib/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+  nacos-server:
+    image: nacos/nacos-server
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+    restart:
+      always
+    volumes:
+      - /opt/nacos/standalone-logs/:/home/nacos/logs
+#      - ./nacos/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+  sentinel-dashboard:
+    image: bladex/sentinel-dashboard
+    ports:
+      - "8858:8858"
+    restart:
+      always

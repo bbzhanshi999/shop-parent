@@ -1,0 +1,11 @@
+GET http://localhost:8091/order/prod/2
+
+###
+POST http://localhost:8091/order/message3
+content-type: application/x-www-form-urlencoded
+
+age=12
+###
+
+GET http://localhost:8091/order/message1
+up-server: service-a
